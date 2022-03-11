@@ -1,5 +1,5 @@
 // Opdracht 1: haal met gebruik van `XMLHttpRequest` een Pokemon op (GET request)
-// toon de naam van de pokemon in een alert
+// toon de naam van de eerste ability van de pokemon in een alert
 // toon een alert wanneer het request is mislukt
 
 // De stappen zijn als volgt:
@@ -14,9 +14,9 @@ xhr.send();
 // 5. "Luister" naar de XHR events voor de response (onload, onerror, onprogress)
 // Wij gebruiken onload
 xhr.onload = function () {
-  if (xhr.status == !200) {
+  if (xhr.status !== 200) {
     alert("Er ging iets mis");
   } else {
-    console.log(xhr.response);
+    alert(`ability = ${xhr.response.abilities[0].ability.name}`);
   }
 };
